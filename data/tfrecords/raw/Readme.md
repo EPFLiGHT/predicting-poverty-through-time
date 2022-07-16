@@ -1,0 +1,1 @@
+Our extracted tfrecords can be downloaded from [here](https://drive.google.com/file/d/1HJ3Q6BhmcZsRxb-JjhSkL6zH7hoMj1HB/view?usp=sharing).

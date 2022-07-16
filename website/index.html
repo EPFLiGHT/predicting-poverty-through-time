@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Predicting poverty through time</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body,
+        #map {
+            height: 100%;
+            width: 100vw;
+        }
+
+        .leaflet-container {
+            background: #fff;
+            outline: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="max-width-4 mx-auto">
+        <div class="clearfix">
+            <h1 class="center">Predicting poverty through time</h1>
+            <p>This is the first dummy visualization showing only the clusters from the ground truth LSMS data.</p>
+            <div id="map" style="height: 60vh; width: 100vh;"></div>
+            <p>Please select a year: 
+            <select id="years">
+                <option value="2015">2015</option>
+                <option value="2019">2019</option>
+            </select>
+            </p>
+        </div>
+    </div>
+
+    <script type="module">
+        import './assets/style.css'
+        import ng_15 from './assets/nigeria_15.json'
+        import ng_19 from './assets/nigeria_19.json'
+        import nigeria_shape from './assets/nigeria.json'
+
+        var map = L.map('map', { attributionControl: false }).setView([9.319762309430459, 7.919143566227225], 6);
+        L.geoJSON(nigeria_shape, { color: '#000', fillOpacity: 1 }).addTo(map);
+        L.control.scale().addTo(map);
+
+        var clusters;
+
+        document.getElementById('years').onchange = updateBoxes;
+        function addBoxes() {
+            var selectedYear = document.getElementById('years').value
+            if (selectedYear == "2015") {
+                var bboxes = ng_15
+            } else if (selectedYear == "2019") {
+                var bboxes = ng_19
+            } else {
+                var bboxes = ng_15
+            }
+            var clusterArray = [];
+            for (let key in bboxes) {
+                var curBox = L.rectangle([
+                    [bboxes[key]['xmin'], bboxes[key]['ymin']],
+                    [bboxes[key]['xmax'], bboxes[key]['ymax']]
+                ], {
+                    fillColor: bboxes[key]['color'],
+                    color: bboxes[key]['color'],
+                    fillOpacity: 0.65,
+                }).bindPopup("pcc: " + bboxes[key]["real"] + " | " + bboxes[key]["pred"] + "<br>"
+                + "log: " +  bboxes[key]["real_log"] + " | " + bboxes[key]["pred_log"]);
+                clusterArray.push(curBox);
+            }
+            clusters = L.layerGroup(clusterArray).addTo(map);
+        }
+
+        function updateBoxes() {
+            if (clusters) {
+                console.log("Exists!")
+                clusters.clearLayers();
+            }
+            console.log("Updated!")
+            addBoxes();
+        }
+
+        updateBoxes();
+
+    </script>
+</body>
+
+</html>
