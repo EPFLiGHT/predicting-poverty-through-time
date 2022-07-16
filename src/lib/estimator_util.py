@@ -1,3 +1,6 @@
+"""
+Functions of estimation notebooks.
+"""
 from scipy.stats import pearsonr
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import KFold
@@ -212,11 +215,12 @@ def get_recent_features(df: pd.DataFrame, countries: list, osm_cols: list, infl:
 
 def get_features(df: pd.DataFrame, countries: list, years: list, osm_cols: list, infl: int = 1, scale_cnn: bool = True, scale_complete: bool = True, log_transform = True):
     """
-    Return features from most recent survey for a country.
+    Return features for a country by given years..
 
     Args
     - df (pd.Dataframe): Dataframe with data
     - countries (list): Countries for which data is requested
+    - years (list): Selected years
     - osm_cols (list): Columns for OSM features
     - infl (int): infaltion rate for scaling
     - scale_cnn (bool): standard. CNN features
@@ -264,7 +268,18 @@ def get_features(df: pd.DataFrame, countries: list, years: list, osm_cols: list,
     return X, y
 
 def get_features_allyears(complete_df, countries, osm_colls):
+    """
+    Return features for a country with all years in dataset. All data is scaled to inflation rate from 2010 on.
 
+    Args
+    - df (pd.Dataframe): Dataframe with data
+    - countries (list): Countries for which data is requested
+    - osm_cols (list): Columns for OSM features
+
+    Return:
+    - X (np.array): features
+    - y (np.array): cons.
+    """
     X = None
     y = None
 

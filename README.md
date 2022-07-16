@@ -4,7 +4,7 @@ TLDR: We are using data from Landsat and OpenStreetMap to predict consumption. C
 
 ## Running the code
 
-TLDR: Go the `src` dir and follow the steps. 
+TLDR: Go the [src](src/) dir and follow the steps. 
 
 ### Setup
 To run the code you have multiple options. For both you have to install the requirements file by executing `pip install -r requirements.txt`.
@@ -14,24 +14,24 @@ To run the code you have multiple options. For both you have to install the requ
 You can use Google Colab to setup a SSH connection and connect your IDE or Editor with your Google Colab machine and work remotely. The benefit here is, you directly using tools like [Google Earth Engine](https://earthengine.google.com/) and [Pytorch](https://pytorch.org/). Also you can use the GPU's. To setup the SSH connection follow the steps:
 
 1. Get a free [ngork](https://ngrok.com/) account and copy your API keys.
-2. Open the `colab_ssh.ipynb` in your Colab session and execute it.
-3. Open your IDE and change the SSH settings to the one given in the last cell of the `colab_ssh.ipynb` and connect to the machine.
+2. Open the [colab_ssh](colab_ssh.ipynb) in your Colab session and execute it.
+3. Open your IDE and change the SSH settings to the one given in the last cell of the [colab_ssh](colab_ssh.ipynb) and connect to the machine.
 4. Now you should have remote access. You can install git using apt and the Python Extension in your IDE, to execute Jupyter Notebooks. 
 
 #### Run local
 
-Of course you can run the code on your local machine. We strongly recommend to execute the `0.1_download_satellite_colab.ipynb` and `1.1_cnn colab.ipynb` on Google Colab.
+Of course you can run the code on your local machine. We strongly recommend to execute the [0.1_download_satellite_colab](src/1_feature_generation/0_download_satellite.ipynb) and [1.1_cnn colab.ipynb](src/1_feature_generation/0.1_download_satellite_colab.ipynb) on Google Colab.
 
 ### LSMS
 
-We are using the surveys of the WorldBank as our true gold standart. You have to download the [LSMS surveys](https://microdata.worldbank.org/index.php/catalog/lsms) more or less manually. However we automated the process partly. You can find the code in `src/0_lsms_processing`. 
+We are using the surveys of the WorldBank as our true gold standart. You have to download the [LSMS surveys](https://microdata.worldbank.org/index.php/catalog/lsms) more or less manually. However we automated the process partly. You can find the code in [0_lsms_processing](src/0_lsms_processing/). 
 
-- `src/0_lsms_processing/0_download_country_codes.ipynb`: Download the country codes for all Sub Saharian African countries from the WorldBank API to use the same country codes.
-- `src/0_lsms_processing/1_check_lsms_availability.ipynb`: Checks the availability of the LSMS for the given countries.
--  `src/0_lsms_processing/2_consent_lsms_form.ipynb`: Poor mans approach to automate the download. The WorldBank requires to fill a consent form and this file does it for us and downloads the survey files for us. You can download our downloaded surveys from [here](https://drive.google.com/file/d/1IlF66tdPrty5OmGdWGd7iN39KZCV-iKD/view?usp=sharing).
--  `src/0_lsms_processing/3_process_surveys.ipynb`: Preprocesses the RAW survey data. Please find the processing steps in `src/lib/lsms.py`. 
+- [0_download_country_codes](src/0_lsms_processing/0_download_country_codes.ipynb): Download the country codes for all Sub Saharian African countries from the WorldBank API to use the same country codes.
+- [1_check_lsms_availability](src/0_lsms_processing/1_check_lsms_availability.ipynb): Checks the availability of the LSMS for the given countries.
+- [2_consent_lsms_form](src/0_lsms_processing/2_consent_lsms_form.ipynb): Poor mans approach to automate the download. The WorldBank requires to fill a consent form and this file does it for us and downloads the survey files for us. You can download our downloaded surveys from [here](https://drive.google.com/file/d/1IlF66tdPrty5OmGdWGd7iN39KZCV-iKD/view?usp=sharing).
+- [3_process_surveys](src/0_lsms_processing/3_process_surveys.ipynb): Preprocesses the RAW survey data. Please find the processing steps in [lib/lsms.py](src/lib/lsms.py). 
 
-After running this code you should have processed survey files in `data/lsms/processed`.
+After running this code you should have processed survey files in [data/lsms/processed](data/lsms/processed).
 
 ### Satellite data and features
 
@@ -60,6 +60,20 @@ The figures generated in by this code are saved in the dir [figs](figs/).
 ### Other figures
 
 The [3_figures](src/3_figures/) contains the code for all the figures generated in the report.
+
+### [lib folder](src/lib/) 
+
+The lib folder contains code, which used in the notebooks. Please read the code and the comment to understand in depth there function. Here an overview.
+
+- [estimator_util](src/lib/estimator_util.py): contains the functions such as the ridge regression, data load for the estimation.
+- [lsms](src/lib/lsms.py): Class for processing the surveys.
+- [satellite_utils](src/lib/satellite_utils.py): Utils for satellite extraction.
+- [tfrecordhelper](src/lib/tfrecordhelper.py): Class for processing tfrecords.
+
+
+## Work In Progress (WIP)
+
+There are still some parts which parts which are Work In Progress, such as the Tutorial part, to make the work more accessible for NGO's and non tech folks also the website is currently in progress.
 
 ## Acknowledgements
 - [ohsome API](https://github.com/GIScience/ohsome-py): For extracting OSM Features
