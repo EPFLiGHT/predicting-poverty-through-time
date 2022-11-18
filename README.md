@@ -8,14 +8,14 @@
     <li><a href="#General-Information">General Information</a></li>
     <li><a href="#Run-the-code">Run the code</a></li>
       <ol>
-        <li><a href="##Google-Colab-Setup">Google Colab</a></li>
-        <li><a href="##Dependencies">Setup</a></li>
-        <li><a href="##LSMS">LSMS</a></li>
-        <li><a href="##Satellite-data-and-features">Satellite data and features</a></li>
-        <li><a href="##OSM Features">OSM Features</a></li>
-        <li><a href="##Evaluation">Evaluation</a></li>
-        <li><a href="##Other figures">Other figures</a></li>
-        <li><a href="##lib folder">Lib folder</a></li>
+        <li><a href="#google-Colab-Setup">Google Colab</a></li>
+        <li><a href="#dependencies">Setup</a></li>
+        <li><a href="#LSMS">LSMS</a></li>
+        <li><a href="#Satellite-data-and-features">Satellite data and features</a></li>
+        <li><a href="#OSM Features">OSM Features</a></li>
+        <li><a href="#Evaluation">Evaluation</a></li>
+        <li><a href="#Other figures">Other figures</a></li>
+        <li><a href="#lib folder">Lib folder</a></li>
       </ol>
     <li><a href="#Work-In-Progress-(WIP)">Work In Progress (WIP)</a></li>
     <li><a href="#Acknowledgements">Acknowledgements</a></li>
