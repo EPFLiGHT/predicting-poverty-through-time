@@ -1,26 +1,63 @@
-# Predicting poverty through time with publicly available data
+<div align="center">
+<h1 align="center">Predicting poverty through time with publicly available data</h1>
+</div>
+<br>
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#General-Information">General Information</a></li>
+    <li><a href="#Run-the-code">Run the code</a></li>
+      <ol>
+        <li><a href="##Google-Colab-Setup">Google Colab</a></li>
+        <li><a href="##Dependencies">Setup</a></li>
+        <li><a href="##LSMS">LSMS</a></li>
+        <li><a href="##Satellite-data-and-features">Satellite data and features</a></li>
+        <li><a href="##OSM Features">OSM Features</a></li>
+        <li><a href="##Evaluation">Evaluation</a></li>
+        <li><a href="##Other figures">Other figures</a></li>
+        <li><a href="##lib folder">Lib folder</a></li>
+      </ol>
+    <li><a href="#Work-In-Progress-(WIP)">Work In Progress (WIP)</a></li>
+    <li><a href="#Acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
-TLDR: We are using data from Landsat and OpenStreetMap to predict consumption. Consumption is chosen, since we can compare it through time. We are analyzing four African countries, Nigeria, Tanzania, Ethiopia and Malawi. Our approach is capable of predicting consumption through time. The features explains up to 75% of the variation in local-level economic outcomes and for the temporal prediction up to 60%. 
+<div align="center">
+<h2 align="center">General Information</h2>
+</div><br>
 
-## Running the code
+Fighting poverty remains challenging due to laborious and expensive tracking and targeting methods, especially over time. 
+Our work presents an accurate, scalable, inexpensive method to estimate consumption expenditure from publicly available data using surveys, satellite images and OpenStreetMap features from four African countries: **Nigeria**, **Tanzania**, **Ethiopia** and **Malawi**.
 
-TLDR: Go the [src](src/) dir and follow the steps. 
+Our approach is capable of predicting consumption through time. The features explain up to 75% of the variation in local-level economic outcomes, and for the temporal prediction, up to 60%. Our method presents a novel way to predict poverty over time. It could transform efforts to understand the development of poverty in developing countries and the tracking and targeting of poverty.
 
-### Setup
-To run the code you have multiple options. For both you have to install the requirements file by executing `pip install -r requirements.txt`.
+<div align="center">
+<h2 align="center">Run the code</h2>
+</div><br>
 
-#### Google Colab
+We will present a step-by-step guide to setup the environment, download the data and test the model.
 
-You can use Google Colab to setup a SSH connection and connect your IDE or Editor with your Google Colab machine and work remotely. The benefit here is, you directly using tools like [Google Earth Engine](https://earthengine.google.com/) and [Pytorch](https://pytorch.org/). Also you can use the GPU's. To setup the SSH connection follow the steps:
+⚠ Disclaimer: we'll use [Google Colab](https://colab.research.google.com/) to execute our code, [VS Code](https://code.visualstudio.com/) as IDE and [ngork](https://ngrok.com/) to connect remotely to the Google Colab server. We strongly recommend to use our configuration, in particular Google Colab, as you will directly have access to tools like [Google Earth Engine](https://earthengine.google.com/), [Pytorch](https://pytorch.org/), as well as the GPUs to speed up intensive computations.
+However, some of the steps shown are independent from the specific configuration you'll decide to adopt.
 
-1. Get a free [ngork](https://ngrok.com/) account and copy your API keys.
-2. Open the [colab_ssh](colab_ssh.ipynb) in your Colab session and execute it.
-3. Open your IDE and change the SSH settings to the one given in the last cell of the [colab_ssh](colab_ssh.ipynb) and connect to the machine.
-4. Now you should have remote access. You can install git using apt and the Python Extension in your IDE, to execute Jupyter Notebooks. 
+### Google Colab Setup
 
-#### Run local
+In order to setup the SSH connection to Google Colab follow these steps:
 
-Of course you can run the code on your local machine. We strongly recommend to execute the [0.1_download_satellite_colab](src/1_feature_generation/0_download_satellite.ipynb) and [1.1_cnn colab.ipynb](src/1_feature_generation/0.1_download_satellite_colab.ipynb) on Google Colab.
+1. Get a free [ngork](https://ngrok.com/) account (you don't have to download ngrok, we'll just use the Authtoken).
+2. Once logged in your ngork account, use this [link](https://dashboard.ngrok.com/get-started/your-authtoken) to see your Authtoken and copy it.
+3. Load on Google Colab the notebook [colab_ssh](colab_ssh.ipynb) and fill it with the missing values (your ngork token and the password you'd like to use to connect to the host).
+4. Run the notebook and copy the output, as it will be our configuration for the SSH connection (you have to give Colab the permissions to access your Google Drive account).
+5. Open VSCode and change the SSH settings: press <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, select *Open SSH Configuration File* and then any of the file listed. Paste there the output of the Colab session and save. 
+6. Now it's time to connect to the host: press again <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, select *Connect to Host* and then *google_colab_ssh*.
+7. Select *Linux* as platform and then insert the password you have chosen in your notebook *colab_ssh*.
+8. You should now be connected to the remote host! To install the Python Extension in your IDE, navigate through the tab Extension, search Python and click on *Install in SSH* (you can also install any other extension you like, as well as git by using apt).
+9. You will need to attach your Google Drive storage, since the data stored in Colab expires within the session. If you executed correctly *colab_ssh*, you should have your Google Drive folder under the absolute path `/root/gdrive/MyDrive/`.
+
+## Dependencies
+
+All the packages dependencies are listed in the file [requirements.txt](\requirements.txt).
+To install them execute `pip install -r requirements.txt`.
 
 ### LSMS
 
@@ -45,7 +82,6 @@ After you download the data you can train the CNN using [1_cnn.ipynb](src/1_feat
 
 The OpenStreetMap Features extraction is straight forward, just execute [2_osm](src/1_feature_generation/2_osm.ipynb). 
 
-
 All the extracted features can be found in the [data](data/) directory. 
 
 ### Evaluation 
@@ -61,20 +97,24 @@ The figures generated in by this code are saved in the dir [figs](figs/).
 
 The [3_figures](src/3_figures/) contains the code for all the figures generated in the report.
 
-### [lib folder](src/lib/) 
+### Lib folder
 
-The lib folder contains code, which used in the notebooks. Please read the code and the comment to understand in depth there function. Here an overview.
+The [lib folder](src/lib/)  contains code, which used in the notebooks. Please read the code and the comment to understand in depth there function. Here an overview.
 
 - [estimator_util](src/lib/estimator_util.py): contains the functions such as the ridge regression, data load for the estimation.
 - [lsms](src/lib/lsms.py): Class for processing the surveys.
 - [satellite_utils](src/lib/satellite_utils.py): Utils for satellite extraction.
 - [tfrecordhelper](src/lib/tfrecordhelper.py): Class for processing tfrecords.
 
-
-## Work In Progress (WIP)
+<div align="center">
+<h2 align="center">Work In Progress (WIP)</h2>
+</div>
 
 There are still some parts which parts which are Work In Progress, such as the Tutorial part, to make the work more accessible for NGO's and non tech folks also the website is currently in progress.
 
-## Acknowledgements
+<div align="center">
+<h2 align="center">Acknowledgements</h2>
+</div>
+
 - [ohsome API](https://github.com/GIScience/ohsome-py): For extracting OSM Features
 - [africa-poverty](https://github.com/sustainlab-group/africa_poverty): For satellite extraction code
