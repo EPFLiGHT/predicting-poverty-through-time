@@ -46,7 +46,7 @@ In order to setup the SSH connection to Google Colab follow these steps:
 
 1. Get a free [ngork](https://ngrok.com/) account (you don't have to download ngrok, we'll just use the Authtoken).
 2. Once logged in your ngork account, use this [link](https://dashboard.ngrok.com/get-started/your-authtoken) to see your Authtoken and copy it.
-3. Load on Google Colab the notebook [colab_ssh](colab_ssh.ipynb) and fill it with the missing values (your ngork token and the password you'd like to use to connect to the host).
+3. Using the provided link, open the notebook [SSH-Colab_sample](https://colab.research.google.com/drive/1Hrol-tbYl81RV6XmLCUvBMingZg1bZZZ?usp=sharing) and copy it in your Google Drive. Then fill it with the missing values (your ngork token and the password you'd like to use to connect to the host).
 4. Run the notebook and copy the output, as it will be our configuration for the SSH connection (you have to give Colab the permissions to access your Google Drive account).
 5. Open VSCode and change the SSH settings: press <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, select *Open SSH Configuration File* and then any of the file listed. Paste there the output of the Colab session and save. 
 6. Now it's time to connect to the host: press again <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, select *Connect to Host* and then *google_colab_ssh*.
@@ -54,7 +54,7 @@ In order to setup the SSH connection to Google Colab follow these steps:
 8. You should now be connected to the remote host! To install the Python Extension in your IDE, navigate through the tab Extension, search Python and click on *Install in SSH* (you can also install any other extension you like, as well as git by using apt).
 9. You will need to attach your Google Drive storage, since the data stored in Colab expires within the session. If you executed correctly *colab_ssh*, you should have your Google Drive folder under the absolute path `/root/gdrive/MyDrive/`.
 
-## Dependencies
+### Dependencies
 
 All the packages dependencies are listed in the file [requirements.txt](\requirements.txt).
 To install them execute `pip install -r requirements.txt`.
