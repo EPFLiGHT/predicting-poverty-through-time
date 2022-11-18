@@ -9,15 +9,15 @@
     <li><a href="#Run-the-code">Run the code</a></li>
       <ol>
         <li><a href="#google-Colab-Setup">Google Colab</a></li>
-        <li><a href="#dependencies">Setup</a></li>
+        <li><a href="#dependencies">Dependencies</a></li>
         <li><a href="#LSMS">LSMS</a></li>
         <li><a href="#Satellite-data-and-features">Satellite data and features</a></li>
-        <li><a href="#OSM Features">OSM Features</a></li>
+        <li><a href="#OSM-Features">OSM Features</a></li>
         <li><a href="#Evaluation">Evaluation</a></li>
-        <li><a href="#Other figures">Other figures</a></li>
-        <li><a href="#lib folder">Lib folder</a></li>
+        <li><a href="#Other-figures">Other figures</a></li>
+        <li><a href="#lib-folder">Lib folder</a></li>
       </ol>
-    <li><a href="#Work-In-Progress-(WIP)">Work In Progress (WIP)</a></li>
+    <li><a href="#Work-In-Progress-wip">Work In Progress</a></li>
     <li><a href="#Acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -107,7 +107,7 @@ The [lib folder](src/lib/)  contains code, which used in the notebooks. Please r
 - [tfrecordhelper](src/lib/tfrecordhelper.py): Class for processing tfrecords.
 
 <div align="center">
-<h2 align="center">Work In Progress (WIP)</h2>
+<h2 align="center">Work In Progress</h2>
 </div>
 
 There are still some parts which parts which are Work In Progress, such as the Tutorial part, to make the work more accessible for NGO's and non tech folks also the website is currently in progress.
