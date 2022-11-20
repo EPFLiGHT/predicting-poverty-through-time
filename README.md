@@ -17,7 +17,7 @@
         <li><a href="#Other-figures">Other figures</a></li>
         <li><a href="#lib-folder">Lib folder</a></li>
       </ol>
-    <li><a href="#Work-In-Progress-wip">Work In Progress</a></li>
+    <li><a href="#Work-In-Progress">Work In Progress</a></li>
     <li><a href="#Acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -27,7 +27,7 @@
 </div><br>
 
 Fighting poverty remains challenging due to laborious and expensive tracking and targeting methods, especially over time. 
-Our work presents an accurate, scalable, inexpensive method to estimate consumption expenditure from publicly available data using surveys, satellite images and OpenStreetMap features from four African countries: **Nigeria**, **Tanzania**, **Ethiopia** and **Malawi**.
+Our work presents an accurate, scalable, inexpensive method to estimate consumption expenditure from publicly available data using surveys, satellite images and OpenStreetMap features from four African countries: **Nigeria**, **Tanzania**, **Ethiopia** and **Malawi**. We're currently testing our model to other countries, expanding our scope also to Asia and South America (see [WIP Section](#Work-in-progress) for more details).
 
 Our approach is capable of predicting consumption through time. The features explain up to 75% of the variation in local-level economic outcomes, and for the temporal prediction, up to 60%. Our method presents a novel way to predict poverty over time. It could transform efforts to understand the development of poverty in developing countries and the tracking and targeting of poverty.
 
@@ -35,12 +35,14 @@ Our approach is capable of predicting consumption through time. The features exp
 <h2 align="center">Run the code</h2>
 </div><br>
 
+> **Deprecated**: Unfortunately, so far the usage of [colab-ssh](https://github.com/WassimBenzarti/colab-ssh) has been prohibited by Google Colab. You can still follow the procedure at your own risk (see Google Colab [FAQ](https://research.google.com/colaboratory/faq.html#limitations-and-restrictions)). However, we suggest you to skip the next section and simply use Google Colab directly through your browser.
+
 We will present a step-by-step guide to setup the environment, download the data and test the model.
 
-⚠ Disclaimer: we'll use [Google Colab](https://colab.research.google.com/) to execute our code, [VS Code](https://code.visualstudio.com/) as IDE and [ngork](https://ngrok.com/) to connect remotely to the Google Colab server. We strongly recommend to use our configuration, in particular Google Colab, as you will directly have access to tools like [Google Earth Engine](https://earthengine.google.com/), [Pytorch](https://pytorch.org/), as well as the GPUs to speed up intensive computations.
+⚠ Disclaimer: we'll use [Google Colab](https://colab.research.google.com/) to execute our code, [VS Code](https://code.visualstudio.com/) as IDE and [ngork](https://ngrok.com/) to authenticate to the Google Colab server. We strongly recommend to use our configuration, in particular Google Colab, as you will directly have access to tools like [Google Earth Engine](https://earthengine.google.com/), [Pytorch](https://pytorch.org/), as well as the GPUs to speed up intensive computations.
 However, some of the steps shown are independent from the specific configuration you'll decide to adopt.
 
-### Google Colab Setup
+### Google Colab SSH Setup
 
 In order to setup the SSH connection to Google Colab follow these steps:
 
@@ -110,7 +112,7 @@ The [lib folder](src/lib/)  contains code, which used in the notebooks. Please r
 <h2 align="center">Work In Progress</h2>
 </div>
 
-There are still some parts which parts which are Work In Progress, such as the Tutorial part, to make the work more accessible for NGO's and non tech folks also the website is currently in progress.
+We're working to expand our work to several other countries, not only in the African continent, but also in Asia and South America. We're starting from countries with the highest number of LSMS surveys, you can get our data collection in this [spreadsheet](https://docs.google.com/spreadsheets/d/1zW4eHoUjAnlO5AthVc_PCBbKON2aWPVFCLMjHclapJ8/edit?usp=sharing).
 
 <div align="center">
 <h2 align="center">Acknowledgements</h2>
