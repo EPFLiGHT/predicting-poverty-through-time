@@ -10,9 +10,12 @@
       <ol>
         <li><a href="#google-Colab-Setup">Google Colab</a></li>
         <li><a href="#dependencies">Dependencies</a></li>
-        <li><a href="#LSMS">LSMS</a></li>
-        <li><a href="#Satellite-data-and-features">Satellite data and features</a></li>
-        <li><a href="#OSM-Features">OSM Features</a></li>
+        <li><a href="#Data">Data</a></li>
+          <ol>
+          <li><a href="#WorldBank-LSMS">WorldBank LSMS</a></li>
+          <li><a href="#Satellite-data-and-features">Satellite data and features</a></li>
+          <li><a href="#OSM-Features">OSM Features</a></li>
+          </ol>
         <li><a href="#Evaluation">Evaluation</a></li>
         <li><a href="#Other-figures">Other figures</a></li>
         <li><a href="#lib-folder">Lib folder</a></li>
@@ -61,18 +64,22 @@ In order to setup the SSH connection to Google Colab follow these steps:
 All the packages dependencies are listed in the file [requirements.txt](\requirements.txt).
 To install them execute `pip install -r requirements.txt`.
 
-### LSMS
+### Data
 
-We are using the surveys of the WorldBank as our true gold standart. You have to download the [LSMS surveys](https://microdata.worldbank.org/index.php/catalog/lsms) more or less manually. However we automated the process partly. You can find the code in [0_lsms_processing](src/0_lsms_processing/). 
+As a starting point, you'll find some pre-downloaded data files in the folder [data](data/). However, due to the size of some files, this is incomplete, thus you can follow the next steps to properly fill the folder and understand the source of our data.
 
-- [0_download_country_codes](src/0_lsms_processing/0_download_country_codes.ipynb): Download the country codes for all Sub Saharian African countries from the WorldBank API to use the same country codes.
+#### WorldBank LSMS
+
+We are using the surveys of the WorldBank as our true gold standart. In particular we'll use the ***Living Standards Measurement Study*** surveys [LSMS](https://microdata.worldbank.org/index.php/catalog/lsms). The data can be downloaded manually, however we succeeded in automating the process partly. You will find the code in the subfolder [0_lsms_processing](src/0_lsms_processing/). 
+
+- [0_download_country_codes](src/0_lsms_processing/0_download_country_codes.ipynb): Execute this notebook to download the country codes for all Sub Saharian African countries from the WorldBank API, in order to have an alignment on the country codes. It updates the [countries code](data/countries_meta/countries_code.csv) file. 
 - [1_check_lsms_availability](src/0_lsms_processing/1_check_lsms_availability.ipynb): Checks the availability of the LSMS for the given countries.
 - [2_consent_lsms_form](src/0_lsms_processing/2_consent_lsms_form.ipynb): Poor mans approach to automate the download. The WorldBank requires to fill a consent form and this file does it for us and downloads the survey files for us. You can download our downloaded surveys from [here](https://drive.google.com/file/d/1IlF66tdPrty5OmGdWGd7iN39KZCV-iKD/view?usp=sharing).
 - [3_process_surveys](src/0_lsms_processing/3_process_surveys.ipynb): Preprocesses the RAW survey data. Please find the processing steps in [lib/lsms.py](src/lib/lsms.py). 
 
 After running this code you should have processed survey files in [data/lsms/processed](data/lsms/processed).
 
-### Satellite data and features
+#### Satellite data and features
 
 To download the data please execute the [0_download_satellite.ipynb](src/1_feature_generation/0_download_satellite.ipynb) notebook. However we recommend you to execute it on Google Colab. For this we have a modified [Colab](src/1_feature_generation/0.1_download_satellite_colab.ipynb) of the notebook, which contains all necessary libs. Since you would need to install Earth Engine locally. You also need a [Google Earth Engine account](https://earthengine.google.com/) to execute the code. Researchers, NGO's and country get free access within a short time. You can download our extracted data from [here](https://drive.google.com/file/d/1HJ3Q6BhmcZsRxb-JjhSkL6zH7hoMj1HB/view?usp=sharing).
 
@@ -80,7 +87,7 @@ After you download the data you can train the CNN using [1_cnn.ipynb](src/1_feat
 
 ⚠ Caution: The tfrecords need a lot of RAM! 
 
-### OSM Features 
+#### OSM Features 
 
 The OpenStreetMap Features extraction is straight forward, just execute [2_osm](src/1_feature_generation/2_osm.ipynb). 
 
