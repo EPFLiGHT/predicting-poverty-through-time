@@ -70,14 +70,25 @@ As a starting point, you'll find some pre-downloaded data files in the folder [d
 
 #### WorldBank LSMS
 
-We are using the surveys of the WorldBank as our true gold standart. In particular we'll use the ***Living Standards Measurement Study*** surveys [LSMS](https://microdata.worldbank.org/index.php/catalog/lsms). The data can be downloaded manually, however we succeeded in automating the process partly. You will find the code in the subfolder [0_lsms_processing](src/0_lsms_processing/). 
+We are using the surveys of the WorldBank as our true gold standart. In particular we'll use the ***Living Standards Measurement Study*** surveys ([LSMS](https://microdata.worldbank.org/index.php/catalog/lsms)). The data can be downloaded manually, however we succeeded in partly automate the process. You will find the code in the subfolder [src/0_lsms_processing](src/0_lsms_processing/):
 
-- [0_download_country_codes](src/0_lsms_processing/0_download_country_codes.ipynb): Execute this notebook to download the country codes for all Sub Saharian African countries from the WorldBank API, in order to have an alignment on the country codes. It updates the [countries code](data/countries_meta/countries_code.csv) file. 
-- [1_check_lsms_availability](src/0_lsms_processing/1_check_lsms_availability.ipynb): Checks the availability of the LSMS for the given countries.
-- [2_consent_lsms_form](src/0_lsms_processing/2_consent_lsms_form.ipynb): Poor mans approach to automate the download. The WorldBank requires to fill a consent form and this file does it for us and downloads the survey files for us. You can download our downloaded surveys from [here](https://drive.google.com/file/d/1IlF66tdPrty5OmGdWGd7iN39KZCV-iKD/view?usp=sharing).
-- [3_process_surveys](src/0_lsms_processing/3_process_surveys.ipynb): Preprocesses the RAW survey data. Please find the processing steps in [lib/lsms.py](src/lib/lsms.py). 
+- [0_download_country_codes](src/0_lsms_processing/0_download_country_codes.ipynb): Execute this notebook to download the country codes for all Sub Saharian African countries from the WorldBank API, in order to have an alignment on the country codes. It's used to update this [file](data/countries_meta/countries_code.csv).
+- [1_check_lsms_availability](src/0_lsms_processing/1_check_lsms_availability.ipynb): Execute this notebook to automatically check the availability of LSMS surveys for the given countries. It's used to catalogate the countries in 2 files within the subfolder [data/countries_meta]: the countries which have more than one survey over time [here](data/countries_meta/countries_lsms_time_valid.csv) (it's possible to ***time travel***) and the ones which have just one survey [here](data/countries_meta/countries_lsms_valid.csv). Countries with no survey are so discarded.
+- [2_consent_lsms_form](src/0_lsms_processing/2_consent_lsms_form.ipynb): Execute this notebook to automatically download some of the LSMS data (yet you have to do some manual work here). You firstly need to create your WorldBank account, then create a json file `accounts.json` with your credentials to access your WorldBank account of the following structure:
+```javascript
+{
+  "worldbank": {
+    "user": "xx",
+    "pw": "xx"
+  }
+}
+```
+Place it in this current directory. The WorldBank requires to fill a consent form and this notebook does it for us. Follow the procedure explained in the notebook for more details. Alternatevely, you can download our downloaded surveys (not updated) from [here](https://drive.google.com/file/d/1IlF66tdPrty5OmGdWGd7iN39KZCV-iKD/view) and then place the raw folder in the directory `data/lsms` (the uncompressed folder occupies 3.5GB).
+- [3_process_surveys](src/0_lsms_processing/3_process_surveys.ipynb): 
+Execute this notebook to preprocess the RAW survey data. Please find the processing steps in [lib/lsms.py](src/lib/lsms.py). After running this code you should have processed survey files in [data/lsms/processed](data/lsms/processed).
 
-After running this code you should have processed survey files in [data/lsms/processed](data/lsms/processed).
+> ***Lazy setup***: 
+If you don't want to have real-time updated data, you can rely on the data we downloaded and processed. Then, you'll find the data ready to be used [here](data/lsms/processed/).
 
 #### Satellite data and features
 
