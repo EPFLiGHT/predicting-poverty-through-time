@@ -29,4 +29,7 @@ __pychache__
 accounts.json
 
 data/lsms/raw/
+data/tfrecords/raw/
+!data/tfrecords/raw/Readme.md
 ohsome_log
+venv/

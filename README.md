@@ -83,7 +83,7 @@ We are using the surveys of the WorldBank as our true gold standart. In particul
   }
 }
 ```
-Place it in this current directory. The WorldBank requires to fill a consent form and this notebook does it for us. Follow the procedure explained in the notebook for more details. Alternatevely, you can download our downloaded surveys (not updated) from [here](https://drive.google.com/file/d/1IlF66tdPrty5OmGdWGd7iN39KZCV-iKD/view) and then place the raw folder in the directory `data/lsms` (the uncompressed folder occupies 3.5GB).
+Place it in this current directory. The WorldBank requires to fill a consent form and this notebook does it for us. Follow the procedure explained in the notebook for more details. Alternatevely, you can download our downloaded surveys (not updated) from [here](https://drive.google.com/file/d/1IlF66tdPrty5OmGdWGd7iN39KZCV-iKD/view?usp=sharing) and then place the raw folder in the directory `data/lsms` (the uncompressed folder occupies 3.5GB).
 - [3_process_surveys](src/0_lsms_processing/3_process_surveys.ipynb): 
 Execute this notebook to preprocess the RAW survey data. Please find the processing steps in [lib/lsms.py](src/lib/lsms.py). After running this code you should have processed survey files in [data/lsms/processed](data/lsms/processed).
 
@@ -92,24 +92,37 @@ If you don't want to have real-time updated data, you can rely on the data we do
 
 #### Satellite data and features
 
-To download the data please execute the [0_download_satellite.ipynb](src/1_feature_generation/0_download_satellite.ipynb) notebook. However we recommend you to execute it on Google Colab. For this we have a modified [Colab](src/1_feature_generation/0.1_download_satellite_colab.ipynb) of the notebook, which contains all necessary libs. Since you would need to install Earth Engine locally. You also need a [Google Earth Engine account](https://earthengine.google.com/) to execute the code. Researchers, NGO's and country get free access within a short time. You can download our extracted data from [here](https://drive.google.com/file/d/1HJ3Q6BhmcZsRxb-JjhSkL6zH7hoMj1HB/view?usp=sharing).
+Let's now move on the next data to download and process: satellite images!
+You will find the code in the subfolder [src/1_feature_generation](src/1_feature_generation/):
 
-After you download the data you can train the CNN using [1_cnn.ipynb](src/1_feature_generation/1_cnn.ipynb). Again we recommend to execute it on Colab for this you can use our [colab](src/1_feature_generation/1.1_cnn colab.ipynb) version. If you don't want to train the network from scratch, you can use our [weights](https://drive.google.com/file/d/1Vt6wC4d0qdbyzJlIILPCaf8zWoMbTzGB/view?usp=sharing).
+- [0_download_satellite.ipynb](src/1_feature_generation/0_download_satellite.ipynb):
+Execute this notebook to download the satellite images in the folder `data/tfrecords/raw`. However, in order to execute this locally, you would have to install Earth Engine. Thus, we recommend you to execute a modified [version](https://drive.google.com/file/d/1J8KCAey1WRQmb5qQOCUbbFz1pNqskYDE/view?usp=sharing) on Google Colab, which contains all necessary libs. Keep in mind that both ways you need a [Google Earth Engine](https://earthengine.google.com/) account to execute the code. Researchers, NGO's and country get free access within a short time.
+
+> ***Lazy setup***: 
+Alternatevely, you can download the data already downloaded by us from [here](https://drive.google.com/file/d/1HJ3Q6BhmcZsRxb-JjhSkL6zH7hoMj1HB/view?usp=sharing) and place them in the directory `data/tfrecords/raw` (the uncompressed folder occupies 1.76GB).
+
+- You can now train the CNN running the notebook [1_cnn.ipynb](src/1_feature_generation/1_cnn.ipynb). Again, we recommend to execute on Colab the optimized [version](https://drive.google.com/file/d/1P77BSmtxFCypFoo49DxjuOrBG3Hu36bp/view?usp=sharing).
+
+> ***Lazy setup***: 
+If you don't want to train the model from scratch, you can download our [weights](https://drive.google.com/file/d/1Vt6wC4d0qdbyzJlIILPCaf8zWoMbTzGB/view?usp=sharing) and place them in the directory `data/cnn_weights`.
+
 
 ⚠ Caution: The tfrecords need a lot of RAM! 
 
 #### OSM Features 
 
-The OpenStreetMap Features extraction is straight forward, just execute [2_osm](src/1_feature_generation/2_osm.ipynb). 
+The OpenStreetMap Features extraction is straightforward, just execute [2_osm](src/1_feature_generation/2_osm.ipynb). 
 
-All the extracted features can be found in the [data](data/) directory. 
+All the OSM extracted features can be found in the [data](data/osm_features) directory. 
 
+> ***Lazy setup***: 
+If you don't want to have real-time updated data, you can rely on the data we downloaded. Then, you'll find the data ready to be used [here](data/osm_features/).
 ### Evaluation 
 
 After you successfully downloaded, processed and extracted everything you can run the models in [2_evaluation](src/2_evaluation).  
 - [0_recent_surveys](src/2_evaluation/0_recent_surveys.ipynb): Evaluation of the recent surveys for each country.
 - [1_recent_combined](src/2_evaluation/1_recent_combined.ipynb): Evaluation on combined (pooled) features of the most recent surveys of each country.
-- [3_time_travel](src/2_evaluation/3_time_travel.ipynb): Evaluation of the prediction through time. 
+- [2_time_travel](src/2_evaluation/2_time_travel.ipynb): Evaluation of the prediction through time. 
 
 The figures generated in by this code are saved in the dir [figs](figs/).
 
@@ -119,9 +132,9 @@ The [3_figures](src/3_figures/) contains the code for all the figures generated 
 
 ### Lib folder
 
-The [lib folder](src/lib/)  contains code, which used in the notebooks. Please read the code and the comment to understand in depth there function. Here an overview.
+The [lib folder](src/lib/) contains code used in the notebooks. Please read the code and the comments to understand in depth the functions. Here's an overview:
 
-- [estimator_util](src/lib/estimator_util.py): contains the functions such as the ridge regression, data load for the estimation.
+- [estimator_util](src/lib/estimator_util.py): contains the functions such as the ridge regression and data load for the estimation.
 - [lsms](src/lib/lsms.py): Class for processing the surveys.
 - [satellite_utils](src/lib/satellite_utils.py): Utils for satellite extraction.
 - [tfrecordhelper](src/lib/tfrecordhelper.py): Class for processing tfrecords.
