@@ -61,7 +61,7 @@ In order to setup the SSH connection to Google Colab follow these steps:
 
 ### Dependencies
 
-All the packages dependencies are listed in the file [requirements.txt](\requirements.txt).
+All the packages dependencies are listed in the file [requirements.txt](/requirements.txt).
 To install them execute `pip install -r requirements.txt`.
 
 ### Data
