@@ -58,17 +58,17 @@ class LSMS:
     def read_data(self) -> None:
         """Read the cons. and geovar. file.
         """
-        if self.cons_path.split(".")[-1].lower() == "csv":
+        suffix = self.cons_path.split(".")[-1].lower()
+        if suffix == "csv":
             cons_reader = pd.read_csv
         else:
             cons_reader = pd.read_spss
-
-        if self.hh_path.split(".")[-1].lower() == "csv":
+        suffix = self.hh_path.split(".")[-1].lower()
+        if suffix == "csv":
             hh_reader = pd.read_csv
         else:
             hh_reader = pd.read_spss
-
-        self.df_cons = cons_reader(self.cons_path, )
+        self.df_cons = cons_reader(self.cons_path)
         self.df_hh = hh_reader(self.hh_path)
 
     def process_survey(self, cons_key: str, hhsize_key: str, lat_key: str, lon_key: str, hhid_key: str = "hhid", rural_key: str = "rural", rural_tag: str = "", urban_tag: str = "", multiply: bool = True) -> None:

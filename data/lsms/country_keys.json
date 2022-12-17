@@ -147,5 +147,51 @@
             "special": true,
             "multiply": false
         }
+    },
+    "MLI": {
+        "2018": {
+            "cons_path": "data/lsms/raw/Mali/2019/MLI_2018_EHCVM_v02_M_CSV/ehcvm_welfare_mli2018.csv",
+            "hh_path": "data/lsms/raw/Mali/2019/MLI_2018_EHCVM_v02_M_CSV/grappe_gps_mli2018.csv",
+            "cons_key": "dtot",
+            "hhsize_key": "hhsize",
+            "lat_key": "coordonnes_gps__Latitude",
+            "lon_key": "coordonnes_gps__Longitude",
+            "rural_key": "milieu",
+            "rural": "2",
+            "urban": "1",
+            "hhid_key": "grappe",
+            "special": false,
+            "multiply": false
+        },
+        "2014": {
+            "cons_path": "data/lsms/raw/Mali/2015/MLI_2014_EACI_v03_M_CSV/eaci2014_agregatconso.csv",
+            "hh_path": "data/lsms/raw/Mali/2015/MLI_2014_EACI_v03_M_CSV/eaci_geovariables_2014.csv",
+            "cons_key": "dtot",
+            "hhsize_key": "hhsize",
+            "lat_key": "lat_dd_mod",
+            "lon_key": "lon_dd_mod",
+            "rural_key": "milieu",
+            "rural": "2",
+            "urban": "1",
+            "hhid_key": "grappe",
+            "special": false,
+            "multiply": false
+        }
+    },
+    "NER": {
+        "2018": {
+            "cons_path": "data/lsms/raw/Niger/2019/NER_2018_EHCVM_v02_M_CSV/ehcvm_welfare_ner2018.csv",
+            "hh_path": "data/lsms/raw/Niger/2019/NER_2018_EHCVM_v02_M_CSV/grappe_gps_ner2018.csv",
+            "cons_key": "dtot",
+            "hhsize_key": "hhsize",
+            "lat_key": "coordonnes_gps__Latitude",
+            "lon_key": "coordonnes_gps__Longitude",
+            "rural_key": "milieu",
+            "rural": "2",
+            "urban": "1",
+            "hhid_key": "grappe",
+            "special": false,
+            "multiply": false
+        }
     }
 }
