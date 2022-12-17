@@ -1,1 +1,0 @@
-You can download the weights from out model [here](https://drive.google.com/file/d/1Vt6wC4d0qdbyzJlIILPCaf8zWoMbTzGB/view?usp=sharing).

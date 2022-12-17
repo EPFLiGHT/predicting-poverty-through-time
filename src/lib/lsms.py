@@ -95,6 +95,7 @@ class LSMS:
         df_cons["_cons_ph_"] = df_cons["_cons_ph_"] / self.ppp / 365
         df_cons = df_cons[[hhid_key, "_cons_ph_", "_pph_", rural_key]]
 
+
         df_cords: pd.DataFrame = self.df_hh[[hhid_key, lat_key, lon_key]]
         df_cords = df_cords.rename(columns={lat_key: 'lat', lon_key: 'lon'})
 

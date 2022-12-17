@@ -1,0 +1,247 @@
+    {
+    "ETH": {
+        "2013": {
+            "cons_path": "data/continents/africa/lsms/raw/Ethiopia/2014/ETH_2013_ESS_v03_M_SPSS/cons_agg_w2.sav",
+            "hh_path": "data/continents/africa/lsms/raw/Ethiopia/2014/ETH_2013_ESS_v03_M_SPSS/Pub_ETH_HouseholdGeovars_Y2.sav",
+            "cons_key": "total_cons_ann",
+            "hhsize_key": "hh_size",
+            "lat_key": "lat_dd_mod",
+            "lon_key": "lon_dd_mod",
+            "rural_key": "rural",
+            "rural": "",
+            "urban": "",
+            "hhid_key": "household_id2",
+            "special": false,
+            "multiply": true
+        },
+        "2015": {
+            "cons_path": "data/continents/africa/lsms/raw/Ethiopia/2016/ETH_2015_ESS_v03_M_CSV/Consumption Aggregate/cons_agg_w3.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Ethiopia/2016/ETH_2015_ESS_v03_M_CSV/Geovariables/ETH_HouseholdGeovars_y3.csv",
+            "cons_key": "total_cons_ann",
+            "hhsize_key": "hh_size",
+            "lat_key": "lat_dd_mod",
+            "lon_key": "lon_dd_mod",
+            "rural_key": "rural",
+            "rural": "1",
+            "urban": "2,3",
+            "hhid_key": "household_id2",
+            "special": false,
+            "multiply": true
+        },
+        "2018": {
+            "cons_path": "data/continents/africa/lsms/raw/Ethiopia/2019/ETH_2018_ESS_v02_M_CSV/cons_agg_w4.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Ethiopia/2019/ETH_2018_ESS_v02_M_CSV/ETH_HouseholdGeovariables_Y4.csv",
+            "cons_key": "total_cons_ann",
+            "hhsize_key": "hh_size",
+            "lat_key": "lat_mod",
+            "lon_key": "lon_mod",
+            "rural_key": "saq14",
+            "hhid_key": "household_id",
+            "rural": "",
+            "urban": "",
+            "special": false,
+            "multiply": true
+        }
+    },
+    "MW": {
+        "2016": {
+            "cons_path": "data/continents/africa/lsms/raw/Malawi/2017/MWI_2016_IHS-IV_v04_M_CSV/consumption_aggregate/ihs4 consumption aggregate.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Malawi/2017/MWI_2016_IHS-IV_v04_M_CSV/household_geovariables/householdgeovariablesihs4.csv",
+            "cons_key": "expagg",
+            "hhsize_key": "hhsize",
+            "lat_key": "lat_modified",
+            "lon_key": "lon_modified",
+            "rural_key": "urban",
+            "hhid_key": "case_id",
+            "rural": "2",
+            "urban": "1",
+            "special": false,
+            "multiply": false
+        },
+        "2019": {
+            "cons_path": "data/continents/africa/lsms/raw/Malawi/2020/MWI_2019_IHS-V_v05_M_CSV/ihs5_consumption_aggregate.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Malawi/2020/MWI_2019_IHS-V_v05_M_CSV/householdgeovariables_ihs5.csv",
+            "cons_key": "expagg",
+            "hhsize_key": "hhsize",
+            "lat_key": "ea_lat_mod",
+            "lon_key": "ea_lon_mod",
+            "rural_key": "urban",
+            "hhid_key": "case_id",
+            "rural": "2",
+            "urban": "1",
+            "special": false,
+            "multiply": false
+        }
+    },
+    "NG": {
+        "2012": {
+            "cons_path": "data/continents/africa/lsms/raw/Nigeria/2013/NGA_2012_GHSP-W2_v02_M_CSV/cons_agg_wave2_visit1.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Nigeria/2013/NGA_2012_GHSP-W2_v02_M_CSV/Geodata Wave 2/nga_householdgeovars_y2.csv",
+            "cons_key": "totcons",
+            "hhsize_key": "hhsize",
+            "lat_key": "LAT_DD_MOD",
+            "lon_key": "LON_DD_MOD",
+            "rural_key": "rururb",
+            "hhid_key": "hhid",
+            "rural": "0",
+            "urban": "1",
+            "special": false,
+            "multiply": true
+        },
+        "2015": {
+            "cons_path": "data/continents/africa/lsms/raw/Nigeria/2016/NGA_2015_GHSP-W3_v02_M_CSV/cons_agg_wave3_visit1.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Nigeria/2016/NGA_2015_GHSP-W3_v02_M_CSV/nga_householdgeovars_y3.csv",
+            "cons_key": "totcons",
+            "hhsize_key": "hhsize",
+            "lat_key": "LAT_DD_MOD",
+            "lon_key": "LON_DD_MOD",
+            "rural_key": "rururb",
+            "hhid_key": "hhid",
+            "rural": "0",
+            "urban": "1",
+            "special": false,
+            "multiply": true
+        },
+        "2018": {
+            "cons_path": "data/continents/africa/lsms/raw/Nigeria/2019/NGA_2018_GHSP-W4_v03_M_CSV/totcons_final.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Nigeria/2019/NGA_2018_GHSP-W4_v03_M_CSV/nga_householdgeovars_y4.csv",
+            "cons_key": "totcons_pc",
+            "hhsize_key": "hhsize",
+            "lat_key": "lat_dd_mod",
+            "lon_key": "lon_dd_mod",
+            "rural_key": "sector",
+            "hhid_key": "hhid",
+            "rural": "2",
+            "urban": "1",
+            "special": false,
+            "multiply": true
+        }
+    },
+    "TZA": {
+        "2012": {
+            "cons_path": "data/continents/africa/lsms/raw/Tanzania/2013/TZA_2012_NPS-R3_v01_M_CSV/ConsumptionNPS3.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Tanzania/2013/TZA_2012_NPS-R3_v01_M_CSV/HouseholdGeovars_Y3.csv",
+            "cons_key": "expmR",
+            "hhsize_key": "hhsize",
+            "lat_key": "lat_dd_mod",
+            "lon_key": "lon_dd_mod",
+            "rural_key": "urban",
+            "rural": "1",
+            "urban": "2",
+            "hhid_key": "y3_hhid",
+            "special": false,
+            "multiply": false
+        },
+        "2014": {
+            "cons_path": "data/continents/africa/lsms/raw/Tanzania/2015/TZA_2014_NPS-R4_v03_M_CSV/consumptionNPS4.CSV",
+            "hh_path": "data/continents/africa/lsms/raw/Tanzania/2015/TZA_2014_NPS-R4_v03_M_CSV/hh_sec_a.csv",
+            "cluster_path": "data/continents/africa/lsms/raw/Tanzania/2015/TZA_2014_NPS-R4_v03_M_CSV/npsy4.ea.offset.csv",
+            "cons_key": "expm",
+            "hhsize_key": "hhsize",
+            "lat_key": "lat_modified",
+            "lon_key": "lon_modified",
+            "rural_key": "urban",
+            "rural": "1",
+            "urban": "2",
+            "hhid_key": "y4_hhid",
+            "special": true,
+            "multiply": false
+        }
+    },
+    "MLI": {
+        "2015": {
+            "cons_path": "data/continents/africa/lsms/raw/Mali/2015/MLI_2014_EACI_v03_M_CSV/eaci2014_agregatconso.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Mali/2015/MLI_2014_EACI_v03_M_CSV/eaci_geovariables_2014.csv",
+            "cluster_path": "data/continents/africa/lsms/raw/Mali/2015/MLI_2014_EACI_v03_M_CSV/eaci_geovariables_2014.csv",
+            "cons_key": "pcexp",
+            "hhsize_key": "hhsize",
+            "lat_key": "lat_dd_mod",
+            "lon_key": "lon_dd_mod",
+            "rural_key": "milieu",
+            "rural": "2",
+            "urban": "1",
+            "hhid_key": "grappe",
+            "special": false,
+            "multiply": false
+        },
+        "2019": {
+            "cons_path": "data/continents/africa/lsms/raw/Mali/2019/MLI_2018_EHCVM_v01_M_CSV/ehcvm_welfare_mli2018.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Mali/2019/MLI_2018_EHCVM_v01_M_CSV/grappe_gps_mli2018.csv",
+            "cluster_path": "data/continents/africa/lsms/raw/Mali/2019/MLI_2018_EHCVM_v01_M_CSV/grappe_gps_mli2018.csv",
+            "cons_key": "dtot",
+            "hhsize_key": "hhsize",
+            "lat_key": "coordonnes_gps__Latitude",
+            "lon_key": "coordonnes_gps__Longitude",
+            "rural_key": "milieu",
+            "rural": "2",
+            "urban": "1",
+            "hhid_key": "grappe",
+            "special": false,
+            "multiply": true
+        }
+    },
+    "NER": {
+        "2019": {
+            "cons_path": "data/continents/africa/lsms/raw/Niger/2019/NER_2018_EHCVM_v01_M_CSV/ehcvm_welfare_ner2018.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Niger/2019/NER_2018_EHCVM_v01_M_CSV/grappe_gps_ner2018.csv",
+            "cluster_path": "data/continents/africa/lsms/raw/Niger/2019/NER_2018_EHCVM_v01_M_CSV/grappe_gps_ner2018.csv",
+            "cons_key": "dtot", 
+            "hhsize_key": "hhsize",
+            "lat_key": "coordonnes_gps__Latitude",
+            "lon_key": "coordonnes_gps__Longitude",
+            "rural_key": "milieu",
+            "rural": "2",
+            "urban": "1",
+            "hhid_key": "grappe",
+            "special": false,
+            "multiply": true
+        }
+    },
+    "UGA": {
+        "2011": {
+            "cons_path": "data/continents/africa/lsms/raw/Uganda/2011/UGA_2010_UNPS_v02_M_CSV/pov2010_11.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Uganda/2011/UGA_2010_UNPS_v02_M_CSV/Socio/UNPS_Geovars_1011.csv",
+            "cluster_path": "data/continents/africa/lsms/raw/Uganda/2011/UGA_2010_UNPS_v02_M_CSV/Socio/UNPS_Geovars_1011.csv",
+            "cons_key": "cpexp30",
+            "hhsize_key": "hsize",
+            "lat_key": "lat_mod",
+            "lon_key": "lon_mod",
+            "rural_key": "urban",
+            "rural": "0",
+            "urban": "1",
+            "hhid_key": "HHID",
+            "special": false,
+            "multiply": false 
+        },
+        "2016": {
+            "cons_path": "data/continents/africa/lsms/raw/Uganda/2016/UGA_2015_UNPS_v02_M_CSV/pov_mod2015_16.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Uganda/2016/UGA_2015_UNPS_v02_M_CSV/pov_mod2015_16.csv",
+            "cluster_path": "data/continents/africa/lsms/raw/Uganda/2016/UGA_2015_UNPS_v02_M_CSV/pov_mod2015_16.csv",
+            "cons_key": "cpexp30",
+            "hhsize_key": "hsize",
+            "lat_key": "lat",
+            "lon_key": "long",
+            "rural_key": "urban",
+            "rural": "0",
+            "urban": "1",
+            "hhid_key": "hh",
+            "special": true,
+            "multiply": false 
+        },
+        "2020": {
+            "cons_path": "data/continents/africa/lsms/raw/Uganda/2021/UGA_2020_HFPS_v01_M_v01_A_COVID_CSV/uga_hh.csv",
+            "hh_path": "data/continents/africa/lsms/raw/Uganda/2021/UGA_2020_HFPS_v01_M_v01_A_COVID_CSV/uga_hh.csv",
+            "cluster_path": "data/continents/africa/lsms/raw/Uganda/2021/UGA_2020_HFPS_v01_M_v01_A_COVID_CSV/uga_hh.csv",
+            "cons_key": "totcons",
+            "hhsize_key": "hhsize_r0",
+            "lat_key": "ea_latitude",
+            "lon_key": "ea_longitude",
+            "rural_key": "rural",
+            "rural": "1",
+            "urban": "2",
+            "hhid_key": "hhid",
+            "special": false,
+            "multiply": false 
+        }
+    }
+}

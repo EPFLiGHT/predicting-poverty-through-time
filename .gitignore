@@ -28,8 +28,9 @@ __pychache__
 *.pyc
 accounts.json
 
-data/lsms/raw/
-data/tfrecords/raw/
+**/raw/*
+!data/continents/africa/lsms/raw/Uganda/2016/districts.json
 !data/tfrecords/raw/Readme.md
-ohsome_log
-venv/
+**/cnn_weights/*
+**/cnn_features/*
+**/ohsome_log
