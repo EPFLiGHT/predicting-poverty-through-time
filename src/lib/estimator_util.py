@@ -199,7 +199,7 @@ def get_recent_features(df: pd.DataFrame, countries: list, osm_cols: list, infl:
         else:
             X = np.vstack((X, tmp_X))
 
-        # Uganda has value already tuned by inflaction
+        # Uganda has value already adjusted to inflaction
         if country != 'UGA':
             y_ /= infl
             if log_transform:
