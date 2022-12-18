@@ -143,7 +143,9 @@ The [lib folder](src/lib/) contains code used in the notebooks. Please read the 
 <h2 align="center">Work In Progress</h2>
 </div>
 
-We're working to expand our work to several other countries, not only in the African continent, but also in Asia and South America. We're starting from countries with the highest number of LSMS surveys, you can get our data collection in this [spreadsheet](https://docs.google.com/spreadsheets/d/1zW4eHoUjAnlO5AthVc_PCBbKON2aWPVFCLMjHclapJ8/edit?usp=sharing).
+So far, we successfully expanded the scope to Mali, Uganda and Niger and we improved our current model using a more complex ResNet.
+
+In the future we'll be working to expand our work to several other countries, not only in the African continent, but also in Asia and South America.
 
 <div align="center">
 <h2 align="center">Acknowledgements</h2>
