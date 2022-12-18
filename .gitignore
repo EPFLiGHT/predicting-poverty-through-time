@@ -1,4 +1,5 @@
 # Logs
+**/ohsome_log
 logs
 *.log
 npm-debug.log*
@@ -28,9 +29,18 @@ __pychache__
 *.pyc
 accounts.json
 
-**/raw/*
-!data/continents/africa/lsms/raw/Uganda/2016/districts.json
-!data/tfrecords/raw/Readme.md
-**/cnn_weights/*
-**/cnn_features/*
-**/ohsome_log
+# Heavy files
+data/continents/africa/lsms/raw/*
+!data/continents/africa/lsms/raw/Readme.md
+!data/continents/africa/lsms/raw/district.json
+
+data/continents/africa/tfrecords/raw/*
+!data/continents/africa/tfrecords/raw/Readme.md
+
+data/continents/africa/ResNet18/cnn_weights/*
+data/continents/africa/ResNet50/cnn_weights/*
+data/continents/africa/ResNet152/cnn_weights/*
+
+data/continents/africa/ResNet18/cnn_features/*
+data/continents/africa/ResNet50/cnn_features/*
+data/continents/africa/ResNet152/cnn_features/*

@@ -1,0 +1,1 @@
+Cut and paste the file district.json in the Uganda folder, after having all the raw files downloaded and extracted.
