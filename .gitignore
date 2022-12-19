@@ -32,7 +32,7 @@ accounts.json
 # Heavy files
 data/continents/africa/lsms/raw/*
 !data/continents/africa/lsms/raw/Readme.md
-!data/continents/africa/lsms/raw/district.json
+!data/continents/africa/lsms/raw/uga-districts.json
 
 data/continents/africa/tfrecords/raw/*
 !data/continents/africa/tfrecords/raw/Readme.md
