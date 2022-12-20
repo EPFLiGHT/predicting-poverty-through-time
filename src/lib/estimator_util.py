@@ -198,6 +198,15 @@ def get_recent_features(df: pd.DataFrame, countries: list, osm_cols: list, infl:
             X = tmp_X
         else:
             X = np.vstack((X, tmp_X))
+
+        # Uganda has value already adjusted to inflaction
+        if country != 'UGA':
+            y_ /= infl
+            if log_transform:
+                y_ = np.log(y_)
+        elif log_transform:
+            y_ = np.log1p(y_)
+
         if y is None:
             y = y_
         else:
@@ -205,12 +214,7 @@ def get_recent_features(df: pd.DataFrame, countries: list, osm_cols: list, infl:
 
     if scale_complete:
         X = StandardScaler().fit_transform(X)
-    
-    y /= infl
-
-    if log_transform:
-        y = np.log(y)
-
+ 
     return X, y
 
 def get_features(df: pd.DataFrame, countries: list, years: list, osm_cols: list, infl: int = 1, scale_cnn: bool = True, scale_complete: bool = True, log_transform = True):
@@ -248,6 +252,13 @@ def get_features(df: pd.DataFrame, countries: list, years: list, osm_cols: list,
             tmp_X = np.hstack((cnn_X, osm_X))
             y_ = year_df["cons_pc"].values
 
+            if country != 'UGA':
+                y_ /= infl
+                if log_transform:
+                    y_ = np.log(y_)
+            elif log_transform:
+                y_ = np.log1p(y_)
+
             if X is None:
                 X = tmp_X
             else:
@@ -259,11 +270,6 @@ def get_features(df: pd.DataFrame, countries: list, years: list, osm_cols: list,
 
     if scale_complete:
         X = StandardScaler().fit_transform(X)
-    
-    y /= infl
-
-    if log_transform:
-        y = np.log(y)
 
     return X, y
 
@@ -294,7 +300,13 @@ def get_features_allyears(complete_df, countries, osm_colls):
             tmp_X = np.hstack((cnn_X, osm_X))
             y_ = year_df["cons_pc"].values
             inflr = get_inflation_perf(country, 2010, year)
-            y_ = y_ / inflr
+            
+            if country != 'UGA':
+                y_ = y_ / inflr
+                y_ = np.log(y_)
+            else:
+                y_ = np.log1p(y_)
+                
             if X is None:
                 X = tmp_X
             else:
@@ -306,4 +318,4 @@ def get_features_allyears(complete_df, countries, osm_colls):
                 y = np.append(y, y_)
 
     X = StandardScaler().fit_transform(X)
-    return X, np.log(y)
+    return X, y
