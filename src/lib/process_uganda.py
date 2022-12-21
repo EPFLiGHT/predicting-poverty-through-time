@@ -42,7 +42,7 @@ def uga(keys: set[str], paths: set[str], year: int, country_iso: str, used_keys:
 
 
 def process_uga_2009(metadata: dict) -> tuple[DataFrame, DataFrame]:
-    paths = {f'../{file_path}' for file_path in metadata["UGA"]["2009"]["paths"]}
+    paths = {f'../{file_path}' for file_path in metadata["paths"]}
     keys = {"HHID",
             "hh",
             "lat_mod",
@@ -52,7 +52,7 @@ def process_uga_2009(metadata: dict) -> tuple[DataFrame, DataFrame]:
             "hsize_m",
             "urban"}
 
-    matched_keys = bidict(metadata["UGA"]["2009"]["keys"])
+    matched_keys = bidict(metadata["keys"])
 
     df_nominal = uga(keys, paths, country_iso="UGA", year=2009, used_keys=matched_keys, nominal=True)
     df_real = uga(keys, paths, country_iso="UGA", year=2009, used_keys=matched_keys, nominal=False)
@@ -60,9 +60,9 @@ def process_uga_2009(metadata: dict) -> tuple[DataFrame, DataFrame]:
 
 
 def process_uga_2010(metadata: dict) -> tuple[DataFrame, DataFrame]:
-    paths = {f'../{file_path}' for file_path in metadata["UGA"]["2010"]["paths"]}
+    paths = {f'../{file_path}' for file_path in metadata["paths"]}
     # hh and HHID maybe the same
-    matched_keys = bidict(metadata["UGA"]["2010"]["keys"])
+    matched_keys = bidict(metadata["keys"])
     keys = {"HHID",
             "hh",
             "lat_mod",
