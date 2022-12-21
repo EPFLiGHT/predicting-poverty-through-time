@@ -194,21 +194,20 @@
       "multiply": false
     },
     "2011": {
-            "cons_path": "data/lsms/raw/Niger/2012/NER_2011_ECVMA_v01_M_SPSS/ECVMA2011_Welfare.sav",
-            "hh_path": "data/lsms/raw/Niger/2012/NER_2011_ECVMA_v01_M_SPSS/NER_EA_Offsets.sav",
-            "cons_key": "dtot",
-            "hhsize_key": "hhsize",
-            "lat_key": "LAT_DD_MOD",
-            "lon_key": "LON_DD_MOD",
-            "rural_key": "urbrur",
-            "rural": "2",
-            "urban": "1",
-            "hhid_key": "grappe",
-            "special": false,
-            "multiply": false
+      "cons_path": "data/lsms/raw/Niger/2012/NER_2011_ECVMA_v01_M_SPSS/ECVMA2011_Welfare.sav",
+      "hh_path": "data/lsms/raw/Niger/2012/NER_2011_ECVMA_v01_M_SPSS/NER_EA_Offsets.sav",
+      "cons_key": "dtot",
+      "hhsize_key": "hhsize",
+      "lat_key": "LAT_DD_MOD",
+      "lon_key": "LON_DD_MOD",
+      "rural_key": "urbrur",
+      "rural": "2",
+      "urban": "1",
+      "hhid_key": "grappe",
+      "special": false,
+      "multiply": false
     }
   },
-
   "UGA": {
     "2009": {
       "paths": [
