@@ -33,7 +33,6 @@ def pack_data(keys: set[str], paths: set[str], used_keys: bidict):
 
 def uga(keys: set[str], paths: set[str], year: int, country_iso: str, used_keys: bidict, nominal: bool) -> pd.DataFrame:
     data: pd.DataFrame = pack_data(keys, paths, used_keys)
-    print(data.shape)
     ppp = 1 if nominal else -1
     lsms: LSMS2 = LSMS2(country_iso, year, data, ppp=ppp)
     lsms.process_survey(used_keys['rural_tag'], used_keys['urban_tag'], used_keys['multiply'], used_keys['monthly'])
@@ -44,11 +43,9 @@ def uga(keys: set[str], paths: set[str], year: int, country_iso: str, used_keys:
 def process_uga_2009(metadata: dict) -> tuple[DataFrame, DataFrame]:
     paths = {f'../{file_path}' for file_path in metadata["paths"]}
     keys = {"HHID",
-            "hh",
             "lat_mod",
             "lon_mod",
             "welfare",
-            "hsize",
             "hsize_m",
             "urban"}
 
@@ -64,7 +61,6 @@ def process_uga_2010(metadata: dict) -> tuple[DataFrame, DataFrame]:
     # hh and HHID maybe the same
     matched_keys = bidict(metadata["keys"])
     keys = {"HHID",
-            "hh",
             "lat_mod",
             "lon_mod",
             "welfare",
