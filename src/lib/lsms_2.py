@@ -34,7 +34,6 @@ class LSMS2:
         self.year: int = year
         self.ppp: float = ppp
 
-        print('LSMS2')
         missing_keys = set(KEYS) ^ set(data.columns)
         if missing_keys:
             ValueError(f"Missing keys {missing_keys}")
