@@ -28,16 +28,16 @@ We are using the surveys of the WorldBank as our true gold standart. You have to
 
 - [0_download_country_codes](src/0_lsms_processing/0_download_country_codes.ipynb): Download the country codes for all Sub Saharian African countries from the WorldBank API to use the same country codes.
 - [1_check_lsms_availability](src/0_lsms_processing/1_check_lsms_availability.ipynb): Checks the availability of the LSMS for the given countries.
-- [2_consent_lsms_form](src/0_lsms_processing/2_consent_lsms_form.ipynb): Poor mans approach to automate the download. The WorldBank requires to fill a consent form and this file does it for us and downloads the survey files for us. You can download our downloaded surveys from [here](https://drive.google.com/file/d/1IlF66tdPrty5OmGdWGd7iN39KZCV-iKD/view?usp=sharing).
+- [2_consent_lsms_form](src/0_lsms_processing/2_consent_lsms_form.ipynb): Poor mans approach to automate the download. The WorldBank requires to fill a consent form and this file does it for us and downloads the survey files for us. You can download our downloaded surveys from [here](https://drive.google.com/file/d/18W813JASB23pBPWm2S0890b1ZUX0HWVU/view?usp=sharing).
 - [3_process_surveys](src/0_lsms_processing/3_process_surveys.ipynb): Preprocesses the RAW survey data. Please find the processing steps in [lib/lsms.py](src/lib/lsms.py). 
 
 After running this code you should have processed survey files in [data/lsms/processed](data/lsms/processed).
 
 ### Satellite data and features
 
-To download the data please execute the [0_download_satellite.ipynb](src/1_feature_generation/0_download_satellite.ipynb) notebook. However we recommend you to execute it on Google Colab. For this we have a modified [Colab](src/1_feature_generation/0.1_download_satellite_colab.ipynb) of the notebook, which contains all necessary libs. Since you would need to install Earth Engine locally. You also need a [Google Earth Engine account](https://earthengine.google.com/) to execute the code. Researchers, NGO's and country get free access within a short time. You can download our extracted data from [here](https://drive.google.com/file/d/1HJ3Q6BhmcZsRxb-JjhSkL6zH7hoMj1HB/view?usp=sharing).
+To download the data please execute the [0_download_satellite.ipynb](src/1_feature_generation/0_download_satellite.ipynb) notebook. However we recommend you to execute it on Google Colab. For this we have a modified [Colab](src/1_feature_generation/0.1_download_satellite_colab.ipynb) of the notebook, which contains all necessary libs. Since you would need to install Earth Engine locally. You also need a [Google Earth Engine account](https://earthengine.google.com/) to execute the code. Researchers, NGO's and country get free access within a short time. You can download our extracted data from [here](https://drive.google.com/drive/folders/1wV-fis5BG8_zCtB1NU6mi43o_5UfdMfG?usp=share_link).
 
-After you download the data you can train the CNN using [1_cnn.ipynb](src/1_feature_generation/1_cnn.ipynb). Again we recommend to execute it on Colab for this you can use our [colab](src/1_feature_generation/1.1_cnn colab.ipynb) version. If you don't want to train the network from scratch, you can use our [weights](https://drive.google.com/file/d/1Vt6wC4d0qdbyzJlIILPCaf8zWoMbTzGB/view?usp=sharing).
+After you download the data you can train the CNN using [1_cnn.ipynb](src/1_feature_generation/1_cnn.ipynb). Again we recommend to execute it on Colab for this you can use our [colab](src/1_feature_generation/1.1_cnn colab.ipynb) version. If you don't want to train the network from scratch, you can use our [weights](https://drive.google.com/drive/folders/1ctwl-LYlprZutHvoB2zg2ELC-TgJOHBg?usp=share_link).
 
 ⚠ Caution: The tfrecords need a lot of RAM! 
 
