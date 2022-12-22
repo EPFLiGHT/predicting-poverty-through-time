@@ -5,7 +5,10 @@ import world_bank_data as wb
 class LSMS:
 
     def __init__(self, country_iso: str, year: int, cons_path: str = "", hh_path: str = "", ppp: int = -1, read: bool = False) -> None:
-        """Class to process the LSMS surveys. Since the World Bank is collecting the surveys from different sources, we are dealing with heterogenous data with different keys for the same data. The process is the same for all surveys. This class allows to process the data with the different keys for each file. The country and year are requires. By default the files are not read.
+        """Class to process the LSMS surveys. Since the World Bank is collecting the surveys from different sources,
+        we are dealing with heterogenous data with different keys for the same data. The process is the same for all
+        surveys. This class allows to process the data with the different keys for each file.
+        The country and year are requires. By default the files are not read.
 
         Example:
             You have multiple options to use the object. The simplest one for the survey Nigeria 2015.
@@ -58,17 +61,17 @@ class LSMS:
     def read_data(self) -> None:
         """Read the cons. and geovar. file.
         """
-        if self.cons_path.split(".")[-1].lower() == "csv":
+        suffix = self.cons_path.split(".")[-1].lower()
+        if suffix == "csv":
             cons_reader = pd.read_csv
         else:
             cons_reader = pd.read_spss
-
-        if self.hh_path.split(".")[-1].lower() == "csv":
+        suffix = self.hh_path.split(".")[-1].lower()
+        if suffix == "csv":
             hh_reader = pd.read_csv
         else:
             hh_reader = pd.read_spss
-
-        self.df_cons = cons_reader(self.cons_path, )
+        self.df_cons = cons_reader(self.cons_path)
         self.df_hh = hh_reader(self.hh_path)
 
     def process_survey(self, cons_key: str, hhsize_key: str, lat_key: str, lon_key: str, hhid_key: str = "hhid", rural_key: str = "rural", rural_tag: str = "", urban_tag: str = "", multiply: bool = True) -> None:
